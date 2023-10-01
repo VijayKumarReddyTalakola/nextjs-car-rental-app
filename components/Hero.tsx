@@ -1,17 +1,23 @@
-'use client'
+"use client";
 import React from "react";
 import { CustomButton } from ".";
 import Image from "next/image";
 
 const Hero = () => {
-  const handleScroll = () => {
+  
+  const handleScroll = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const elem = document.getElementById("discover");
+    if (elem) {
+      window.scrollTo({top: elem.offsetTop, behavior: "smooth" });
+    }
   };
 
   return (
     <div className="hero">
       <div className="flex-1 padding-x">
         <h1 className="hero__title">
-          Find ,Book or rent a car - quickly and easily!
+          Find , Book or rent a car - quickly and easily!
         </h1>
         <p className="hero__subtitle">
           Streamline your car rental experience with our effortless booking
@@ -25,9 +31,9 @@ const Hero = () => {
       </div>
       <div className="hero__image-container">
         <div className="hero__image">
-          <Image src='/hero.png'  alt="hero" fill className="object-contain"/>
+          <Image src="/hero.png" alt="hero" fill className="object-contain" />
         </div>
-        <div className="hero__image-overlay"/>
+        <div className="hero__image-overlay" />
       </div>
     </div>
   );

@@ -1,11 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { CarCard, CustomFilter, Hero, SearchBar, ShowMore } from "@/components";
 import { fuels, yearsOfProduction } from "@/constants";
 import { fetchCars } from "@/utils";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Home() {
+  
   const [allCars, setAllCars] = useState([]);
   const [loading, setLoading] = useState(false);
   const [manufacturer, setManufacturer] = useState("");
@@ -36,15 +37,13 @@ export default function Home() {
     getCars();
   }, [fuel, year, limit, manufacturer, model]);
 
-  const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
-
   return (
     <main className="overflow-hidden">
       <Hero />
-      <div className="mt-5 paddind-x max-width" id="discover">
+      <div className="mt-5 lg:mt-0 paddind-x max-width" id="discover">
         <div className="home__text-container">
           <h1 className="text-4xl font-extrabold">Car Catalogue</h1>
-          <p>Explore the cars you might like</p>
+          <p className="text-base md:text-lg">Explore the cars you might like</p>
           <div className="home__filters">
             <SearchBar setManufacturer={setManufacturer} setModel={setModel} />
             <div className="home__filter-container">

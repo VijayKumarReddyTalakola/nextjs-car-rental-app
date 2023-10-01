@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import React from "react";
 import { footerLinks } from "@/constants";
@@ -5,7 +6,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="footer" id="footer">
       <div className="footer__links-container">
         <div className="flex flex-col justify-start items-start gap-6">
           <Image
